@@ -11,6 +11,9 @@ public class Conexion {
     private String URL="jdbc:postgresql://localhost:5432/sisdron";
     private String USER="postgres";
     private String PASS="root";
+//    private String URL="jdbc:postgresql://localhost:5432/yachay";
+//    private String USER="postgres";
+//	  private String PASS="Adm_157/!@";    
     private String CONTROLER="org.postgresql.Driver";
 
     public static Connection conn;
