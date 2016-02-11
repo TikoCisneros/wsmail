@@ -13,15 +13,20 @@ import java.sql.Statement;
  */
 public class SingletonJDBC {
 
-	private static String URL = "jdbc:postgresql://localhost:5432/sisdron";
-	private static String USER = "postgres";
-	private static String PASS = "root";
-	private static String CONTROLER = "org.postgresql.Driver";
+//	private static String URL = "jdbc:postgresql://localhost:5432/sisdron";
+//	private static String USER = "postgres";
+//	private static String PASS = "root";
+//	private static String CONTROLER = "org.postgresql.Driver";
 	
 //	private static String URL = "jdbc:postgresql://localhost:5432/yachay";
 //	private static String USER = "postgres";
 //	private static String PASS = "Adm_157/!@";
 //	private static String CONTROLER = "org.postgresql.Driver"; 
+	
+	private static String URL = "jdbc:postgresql://localhost:5432/yachay";
+	private static String USER = "adm_bicichay";
+	private static String PASS = "y-4IO4SDwu_!";
+	private static String CONTROLER = "org.postgresql.Driver"; 
 
 	private static SingletonJDBC jdbc;
 
