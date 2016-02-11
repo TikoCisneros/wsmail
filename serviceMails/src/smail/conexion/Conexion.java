@@ -1,36 +1,40 @@
 package smail.conexion;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Luis Alberto Cisneros Gómez
+ * @author lcisneros
+ *
+ */
 public class Conexion {
 
-    private String URL="jdbc:postgresql://localhost:5432/sisdron";
-    private String USER="postgres";
-    private String PASS="root";
-//    private String URL="jdbc:postgresql://localhost:5432/yachay";
-//    private String USER="postgres";
-//	  private String PASS="Adm_157/!@";    
-    private String CONTROLER="org.postgresql.Driver";
+    public String URL="jdbc:postgresql://localhost:5432/sgu_bd";
+    public String USER="postgres";
+    public String PASS="root";
+    public String CONTROLER="org.postgresql.Driver";
+
 
     public static Connection conn;
 
     /**
      * Instancia la conexión
      */
-    public Conexion()
-    {
-        if(conn==null)
+    public Conexion() { }
+    
+    public void abrir() throws SQLException{
+    	if(conn==null || conn.isClosed())
         {
             try {
                 Class.forName(CONTROLER).newInstance();
                 conn = DriverManager.getConnection(URL,USER,PASS);
                 System.out.println("Conexion correcta");
             } catch (Exception e) {
-                System.out.println("Conexion incorrecta: "+ e.getMessage());
+                System.out.println("Conexion no correcta: "+ e.getMessage());
             }
         }
     }
@@ -80,6 +84,7 @@ public class Conexion {
         {
             try {
                 conn.close();
+                System.out.println("Conexion cerrada");
             } catch (Exception e) {
                 System.out.println("Error en el cierre: "+e.getMessage());
             }

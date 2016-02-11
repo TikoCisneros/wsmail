@@ -5,17 +5,18 @@ import java.sql.SQLException;
 
 import org.json.simple.JSONObject;
 
-import smail.conexion.Conexion;
+import smail.conexion.SingletonJDBC;
 import smail.entities.Email;
 import smail.entities.WsMailYachay;
 import smail.structure.Mail;
+import smail.structure.Mailer;
 
 public class ManagerMail {
 	
-	private Conexion conn;
+	private SingletonJDBC conn;
 	
 	public ManagerMail() {
-		conn = new Conexion();
+		conn = SingletonJDBC.getInstance();
 	}
 	
 	/**
@@ -29,6 +30,7 @@ public class ManagerMail {
 			if(serverMail==null)
 				throw new Exception("No existe el usuario de correo enviado.");
 			else
+				//Mailer.generateAndSendEmail(crearCorreo(data));
 				Mail.generateAndSendEmail(crearCorreo(data), serverMail);
 		}else
 			throw new Exception("Estructura inválida.");
